@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="shortcut icon" href=".\img\favicon1.ico">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href=".\css\main.css">
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-links">+back</a>
+  </nav>
+  <div class="post">
+    <pre>v-show                           |  показывает, скрывает и элемент </pre>
+    <pre>v-if                             |  удаляет и добавляет элемент в dom </pre>
+    <pre>@click="trigger4 = !trigger4"    |  в связке с v-show позволяет показывать и скрывать элемент по второму клику </pre>
+    <pre>v-if,v-else                      | предлагает на выбор два элемента </pre>
+    <pre>v-if,v-else                      | переключает по клику на тот или другой тег</pre>
+    <pre>иконки                           | http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css</pre>
+  </div>
+
+  <ul class="pattern-list">
+    <li class="pattern">
+      <button class="on_click" @click="trigger = !trigger">hide/show</button>
+      <div class="square" v-show="trigger"></div>
+    </li>
+    <li class="pattern">
+      <button class="on_click" @click="trigger2 = !trigger2">del elem from dom</button>
+      <div class="square blue" v-if="trigger2"></div>
+    </li>
+    <li class="pattern">
+      <button class="on_click" @click="trigger3 = !trigger3">show me smth else</button>
+      <div class="square" v-if="trigger3"></div>
+      <span class="else" v-else>empty</span>
+    </li>
+    <li>
+      <nav class="nav">
+        <button class="on_click" @click="trigger4 = !trigger4">
+          <i class="ion-navicon"></i>
+          <span>slide-animation on click</span>
+        </button>
+        <transition name="slide" class="slide side-bar sb_show sb_hide">
+          <ul v-show="trigger4" class="side-bar">
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+          </ul>
+        </transition>
+      </nav>
+    </li>
+  </ul>
+
+  <script src=" ..\node_modules\vue\dist\vue.min.js "></script>
+  <script>
+    new Vue({
+      el: '.pattern-list',
+      data: {
+        trigger: true,
+        trigger2: true,
+        trigger3: true,
+        trigger4: false,
+      },
+      methods: {
+        onClick: function () {}
+      }
+    })
+  </script>
+  <script src="./js/main.js"></script>
+  <script src="./js/stylePre.js"></script>
+
+</body>
+
+</html>

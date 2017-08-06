@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Study</title>
+  <link rel="shortcut icon" href=".\img\favicon1.ico">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href=".\css\main.css">
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-links">+back</a>
+  </nav>
+  <div class="post">
+    <pre>v-show               | показывает, скрывает и элемент </pre>
+    <pre>.toFixed(2)          | метод округляет до 2 цифр после точки </pre>
+    <pre>text.slice(1)        | обрежет текст до 2 буквы и выведет все что после </pre>
+    <pre>перебор массива      | v-for="(item,index) in people"> выведет и порядковый номер и переменную </pre>
+    <pre>вывести 10 спанов    | <спан v-for="i in 10">item{{i}}<спан>  </pre>
+  </div>
+
+  <ul class="pattern-list">
+    <li class="pattern">
+      {{ 'Filter to uppercase'.toUpperCase() }}
+    </li>
+    <li class="pattern">
+      {{ 'Filter To LOWERCASE'.toLowerCase() }}
+    </li>
+    <li>
+      <p>ограничители до 2 и 4 знаков</p>
+      <p>{{500.124123.toFixed(2)}}</p>
+      <p> {{ num.toFixed(4)}}</p>
+    </li>
+    <li>
+      <p>Первую букву сделали заглавной и добавили остальной текст</p>
+      <p>.slice(1) - Индекс элемента в массиве, с которого будет начинаться новый массив</p>
+      <p>{{ text[0].toUpperCase() + text.slice(1) }}</p>
+    </li>
+    <li>
+      <p>просто добавляем строку символа перед числом</p>
+      <span>{{'$'+num.toFixed(0)}}</span>
+    </li>
+    <li>
+      <p>С помощью перебора массива выводим его содержание</p>
+      <ul>
+        <li v-for="(item,index) in people">{{soc}} - {{index+1}}. {{item.name[0].toUpperCase() + item.name.slice(1)}}: {{item.age}}</li>
+      </ul>
+    </li>
+    <li>
+      <p>С помощью перебора массива выводим его содержание</p>
+      <ul>
+      </ul>
+    </li>
+    <li>
+      <span v-for="i in 10" class="some__class">item{{i}}</span>
+    </li>
+    <li><span v-for="n in even(numbers) ">{{n}}</span></li>
+  </ul>
+
+  <script src=" ..\node_modules\vue\dist\vue.min.js "></script>
+  <script src=" ..\node_modules\vue2-filters.min.js "></script>
+  <script>
+    new Vue({
+      el: '.pattern-list',
+      data: {
+        text: 'first letter to upercase',
+        num: 123.001230012,
+        soc: 'citizen',
+        people: [{
+            name: 'ivan',
+            age: 45,
+            gender: 'male'
+          },
+          {
+            name: 'vika',
+            age: 19,
+            gender: 'female'
+          }, {
+            name: 'sasha',
+            age: 29,
+            gender: 'female'
+          }, {
+            name: 'petro',
+            age: 20,
+            gender: 'male'
+          }
+        ],
+        numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+      },
+      methods: {
+        even: function (numbers) {
+          return numbers.filter(function (number) {
+            return number % 2 !== 0
+          })
+        }
+      }
+    })
+  </script>
+  <script src="./js/main.js "></script>
+  <script src="./js/stylePre.js "></script>
+
+</body>
+
+</html>

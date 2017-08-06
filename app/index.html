@@ -1,0 +1,57 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>VUE</title>
+  <meta content="" name="autor">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link rel="shortcut icon" href=".\img\favicon1.ico">
+  <link rel="stylesheet" href=".\css\main.css">
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a class="nav-links" href="les_1.html">1. v-model</a>
+    <a class="nav-links" href="les_2.html">2. v-bind</a>
+    <a class="nav-links" href="les_3.html">3. v-on | @</a>
+    <a class="nav-links" href="les_4.html">4. v-show, v-if|v-else</a>
+    <a class="nav-links" href="les_5.html">5. filters</a>
+    <a class="nav-links" href="les_6.html">6. v-if,v-bind,v-for</a>
+    <a class="nav-links" href="les_7.html">7. components</a>
+    <a class="nav-links" href="les_8.html">8. dinamic_components1</a>
+    <a class="nav-links" href="les_9.html">9. dinamic_conponents2</a>
+    <a class="nav-links" href="les_10.html">10. add_message</a>
+    <a class="nav-links" href="les_11.html">11. soon</a>
+    <a class="nav-links" href="les_20.html">20. popup</a>
+    <a class="nav-links" href="les_21.html">21. alkans</a>
+    <a class="nav-links" href="les_22.html">22. todo-list example</a>
+  </nav>
+
+  <div class="post">
+    <h5><i>directives</i> - Директивы — это специальные атрибуты с префиксом v-</h5>
+    <pre>v-model         |  используется там, где нужно динамически поменять текст</pre>
+    <pre>v-bind          |  добавить атрибут элементам, сокращенно :class</pre>
+    <pre>v-for           |  перебирает массивы и обьекты</pre>
+    <pre>v-show          |  показывает, скрывает и элемент </pre>
+    <pre>v-if, v-else    |  показывает по-очереди тот или другой тег</pre>
+    <pre>v-if            |  убирает элемент, если он не соответствует условию</pre>
+    <pre>v-cli           |  $ vue init [template_name](webpack, webpack-simple, browserify, browserify-simple, pwa, simple) [my-project] -- (readme) npm run dev</pre>
+    <h5><i>API Global param</i></h5>
+    <pre>el:             | Привязывает экземпляр vue к определенному элементу(идентификатору, классу, тегу - body...) </pre>
+    <pre>data:           |  Object, Function _ Прежде всего, это данные  — не стоит передавать сюда объекты с собственным управлением внутренним состоянием.</pre>
+    <pre>props:          | Array_string, Object _ Список или хэш атрибутов, по которым разрешено получение данных от родительского компонента. 
+                  Передайте простой массив названий или объект, задающий дополнительные параметры, например типы, правила валидации и значения по умолчанию. </pre>
+    <pre>computed:       | Вычисляемые свойства, которые будут подмешаны к экземпляру Vue. В геттерах и сеттерах this будет указывать на экземпляр Vue.</pre>
+    <pre>methods:         | Методы, которые будут подмешаны к экземпляру Vue. Вы можете запустить эти методы прямо из экземпляра VM, или использовать их в директивах. </pre>
+    <pre>template:        | string для шаблонов. Можно вставлять как целиком html разметку так и ссылаться на готорые класси или ид</pre>
+    <pre>model:           | boolean(скорее всего используется для чек-боксов и радио-кнопок</pre>
+  </div>
+  <script src="./js/vue.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/stylePre.js"></script>
+</body>
+
+</html>

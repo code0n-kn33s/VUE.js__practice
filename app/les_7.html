@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Study</title>
+  <link rel="shortcut icon" href=".\img\favicon1.ico">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href=".\css\main.css">
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-links">+back</a>
+  </nav>
+  <div class="post">
+    <pre>conponents                                    | в скобках мы указываем условие. При котором элемент будет отображаться на странице</pre>
+    <pre>v-*[name_component]                           | мы называем тегом компонент, который хотим дублировать на странице</pre>
+    <pre>пример                                        | Vue.component('v-template', {template: '#dialog-template'});</pre>
+    <pre>{template: '#dialog-template'}                | ищем только по id(по класу, не пропустит)</pre>
+  </div>
+
+  <ul class="pattern-list">
+    <li style="height:150px;">
+      <button class="btn" @click="open()">OPEN POPUP</button>
+      <button class="btn" @click="close()">CLOSE POPUP</button>
+      <v-template v-show="active"></v-template>
+    </li>
+    <li>
+      <component></component>
+      <hr>
+      <component2></component2>
+    </li>
+    <li>
+      <v-template></v-template>
+      <v-template v-show="false"></v-template>
+      <v-template></v-template>
+      <v-template></v-template>
+    </li>
+    <li class="pattern">
+      <h4>template popup</h4>
+      <div id="dialog-template" v-show="active">
+        <div class="dialog_window">
+          <p>Wanna buy house?</p>
+          <button class="btn" @click="buttonCancel()">No</button>
+          <button class="btn" @click="buttonConfirm()">Yes</button>
+        </div>
+      </div>
+    </li>
+    <li>
+      <v-one></v-one>
+    </li>
+  </ul>
+
+  <script src=" ..\node_modules\vue\dist\vue.min.js "></script>
+  <script>
+    Vue.component('v-template', {
+      template: '#dialog-template'
+    });
+    Vue.component('component', {
+      template: '<ul><li>component-first_item1</li><li>component-first_item2</li></ul>',
+    });
+    Vue.component('component2', {
+      template: '<div>Include HTML</div>'
+    });
+    Vue.component('v-one', {
+      template: '<h3>Эта надпись вставленна динамически. Имя этого тега компонента: {{ $options.name }}</h3>'
+    })
+
+    new Vue({
+      el: ".pattern-list",
+      data: {
+        active: false
+      },
+      methods: {
+        close: function () {
+          this.active = false
+        },
+        open: function () {
+          this.active = true
+        },
+        buttonCancel: function () {
+          this.close() = true
+        },
+        buttonConfirm: function () {
+          this.close() = true
+        }
+      }
+    })
+  </script>
+  <script src="./js/main.js"></script>
+  <script src="./js/stylePre.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="shortcut icon" href=".\img\favicon1.ico">
+  <link rel="stylesheet" href=".\css\main.css">
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-links">+back</a>
+  </nav>
+  <div class="post">
+    <pre>directives                        | html attribut со специальным префиксом v- , указывающий на выполнение dom монипуляций с элементом</pre>
+  </div>
+
+  <ul class="pattern-list">
+    <li class="pattern">
+      <h5>V-TEXT - для манипуляции текстовой нодой</h5>
+      <span> {{ greatings }} </span>
+      <span v-text='greatings'></span>
+    </li>
+    <li>
+      <h5>V-HTML - для вставки внутрь тега html разметку</h5>
+      <span v-html="html"></span>
+    </li>
+    <li>
+      <h5>V-BIND - для вставки аттрибута</h5>
+      <h6>v-bind:width - для вставки аттрибута width и его значения. Сокращенно :width="50+'px'"</h6>
+      <h6>:src - для вставки аттрибута :src="'./img/' + vueIcon" vueIcon мы подтянули с data</h6>
+      <img :src="'./img/' + vueIcon" alt="vue" :width="50+'px'">
+    </li>
+    <li>
+      <h5>V-BIND:CLASS</h5>
+      <h6>:class - с помощью boolean мы даем или убираем этот класс</h6>
+      <span :class="{red : classRed}">Давайте дадим этому элементу класс</span>
+      <span :class="{red : classRed}">red - name_class, classRed - boolean value in data</span>
+    </li>
+    <li>
+      <h5>V-BIND:STYLE - задать стили через аттрибут style</h5>
+      <h6>подтягиваем стили с json</h6>
+      <span v-bind:style="'color: ' + 'red' ">Stylized text var2 - 'color: ' + 'red' </span>
+      <span v-bind:style="{ color: 'green' }">Stylized text var1 - { color: 'red' }</span>
+      <span v-bind:style="cssDynamic.string">Stylized text from cssDynamic.string</span>
+      <span v-bind:style="cssDynamic.object">Stylized text from cssDynamic.object</span>
+    </li>
+    <li>
+      <h5>V-SHOW, V-IF, V-MODEL</h5>
+      <h6>Переключение экранов с помощью</h6>
+      <span v-show="display">Display block v-show="display" if data.display:true</span>
+      <temp v-if="!display">
+        <span>Content template v-if="!display" if data.display:false</span>
+      </temp>
+
+      <p>
+        <input type="checkbox" id="check" v-model="display">
+        <label for="check">value 'data.display' : {{display}}</label>
+      </p>
+    </li>
+    <li>
+      <h5>V-ON</h5>
+      <h6>one click - trigger classRed(true,false), its add and remove class red</h6>
+      <button class="btn" @click="classRed = !classRed">event remove class 'red'</button>
+      <button class="btn" @dblclick="click: classRed = !classRed">event @dblclick do the same </button>
+    </li>
+
+  </ul>
+
+  <script src="..\node_modules\vue\dist\vue.min.js"></script>
+  <script>
+    new Vue({
+      el: ".pattern-list",
+      data: {
+        greatings: "Hello vue.js this is text !",
+        html: "<div><b>This is html</b></div>",
+        vueIcon: "favicon1.ico",
+        classRed: true,
+        cssDynamic: {
+          string: "background-color: lightblue; padding: 5px;",
+          object: {
+            border: '1px solid grey',
+            color: 'grey',
+            padding: '5px'
+          }
+        },
+        display: ''
+      }
+    })
+  </script>
+  <script src="./js/main.js"></script>
+  <script src="./js/stylePre.js"></script>
+
+</body>
+
+</html>

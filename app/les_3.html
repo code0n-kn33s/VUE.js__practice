@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="shortcut icon" href=".\img\favicon1.ico">
+  <link rel="stylesheet" href=".\css\main.css">
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-links">+back</a>
+  </nav>
+  <div class="post">
+    <pre>v-on         | вешает какое-то событие на кнопку(click, hover ...)</pre>
+    <pre>v-on:        | можно заменить шоткатом символа '@' </pre>
+    <pre>.prevent     | работает как модификатор e.preventDefault()</pre>
+  </div>
+
+  <ul class="pattern-list">
+    <li class="pattern">
+      <form>
+        <button class="on_click" @click.prevent="onClick">button inside 'form'</button>
+      </form>
+    </li>
+    <li class="pattern">
+      <input v-model="vText" @keyup.enter="vClick"></input>
+      <span>{{vText}}</span>
+    </li>
+    <li class="pattern">
+      <button class="on_click" @click="onClick">just button</button>
+    </li>
+  </ul>
+
+  <script src="..\node_modules\vue\dist\vue.min.js"></script>
+  <script>
+    new Vue({
+      el: '.pattern-list',
+      data: {
+        vText: "input some text"
+      },
+      methods: {
+        onClick: function (e) {
+          // e.preventDefault();
+          console.log("событие по клику");
+        },
+        vClick: function () {
+          console.log(this.vText);
+        }
+      }
+    })
+  </script>
+  <script src="./js/main.js"></script>
+  <script src="./js/stylePre.js"></script>
+
+</body>
+
+</html>

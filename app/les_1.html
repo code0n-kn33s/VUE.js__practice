@@ -1,0 +1,81 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>VUE</title>
+  <meta content="" name="autor">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link rel="shortcut icon" href=".\img\favicon1.ico">
+  <link rel="stylesheet" href=".\css\main.css">
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-links">+back</a>
+  </nav>
+  <div class="post">
+    <pre><b>v-model</b>          : используется там, где нужно динамически поменять значение</pre>
+  </div>
+
+  <ul class="pattern-list">
+    <li class="pattern">
+      <h1 class="mess">{{message}}</h1>
+    </li>
+    <li class="pattern">
+      <input type="text" v-model="message">
+    </li>
+    <li class="pattern">
+      <pre>{{ $data | json }}</pre>
+    </li>
+    <li class="pattern">
+      <input type="checkbox" id="check" v-model="checked">
+      <label for="check">{{checked}}</label>
+    </li>
+    <li class="pattern">
+      <input type="checkbox" id="vas" value="Vasa" v-model="checkedNames">
+      <label for='vas'>Vasa</label>
+      <input type="checkbox" id="pet" value="Peta" v-model="checkedNames">
+      <label for='pet'>Peta</label>
+      <input type="checkbox" id="sas" value="Sasha" v-model="checkedNames">
+      <label for='sas'>Sasha</label>
+      <input type="checkbox" id="vad" value="Vadim" v-model="checkedNames">
+      <label for='vad'>Vadim</label>
+      <span>{{checkedNames}}</span>
+    </li>
+    <li class="pattern">
+      <input type="radio" id="one" value="one" v-model="picked">
+      <label for='one'>one</label>
+      <input type="radio" id="two" value="two" v-model="picked">
+      <label for='two'>two</label>
+      <span>{{picked}}</span>
+    </li>
+    <li class="pattern">
+      <select v-model="sel">
+          <option disabled value="">Please select one</option>
+          <option>fish</option>
+          <option>meal</option>
+          <option>bird</option>
+        </select>
+      <span>Selected: {{sel}}</span>
+    </li>
+  </ul>
+
+  <script src="..\node_modules\vue\dist\vue.min.js"></script>
+  <script>
+    new Vue({
+      el: ".pattern-list",
+      data: {
+        message: "Hello Vue!!",
+        checked: true,
+        checkedNames: ['Vasa', 'Peta', 'Sasha', 'Vadim'],
+        picked: 'choose one or two',
+        sel: ''
+      }
+    })
+  </script>
+</body>
+
+</html>

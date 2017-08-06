@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Study</title>
+  <link rel="shortcut icon" href=".\img\favicon1.ico">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href=".\css\main.css">
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-links">+back</a>
+  </nav>
+  <div class="post">
+    <pre>v-if    | в скобках мы указываем условие. При котором элемент будет отображаться на странице</pre>
+    <pre>v-for                         | перебирает массивы и обьекты</pre>
+    <pre>дать класс элементам          | v-bind="{ id: someProp, 'other-attr': otherProp }"</pre>
+    <pre>v-bind:class                  | можно писать сокращенно :class</pre>
+    <pre>attributes                    | :class, :style="{ red: isRed }", :src="'/path/to/images/' + fileName", </pre>
+  </div>
+
+  <ul class="pattern-list">
+    <li class="pattern">
+      <h5>После 30 символов кнопка станет неактивной</h5>
+      <span>{{count}}/30</span>
+      <input class="textarea" type="textarea" v-model="text">
+      <button class="btn" v-if="count <= 30">submit</button>
+    </li>
+    <li class="pattern">
+      <h5>с помощью boolean в массиве bears мы управляем с выводом на экран его ячеек</h5>
+      <ul class="for_bears">
+        <li class="bears-list" v-for="bear in bears" v-bind:class="{'active':bear.status}">{{bear.name}}</li>
+      </ul>
+    </li>
+  </ul>
+
+  <script src=" ..\node_modules\vue\dist\vue.min.js "></script>
+  <script>
+    new Vue({
+      el: ".pattern-list",
+      data: {
+        text: '',
+
+        bears: [{
+          name: "Бурый",
+          status: true
+        }, {
+          name: "Белый",
+          status: false
+        }, {
+          name: "Гризли",
+          status: true
+        }, {
+          name: "Панда",
+          status: false
+        }]
+
+      },
+      computed: {
+        count: function () {
+          return this.text.length
+        }
+      }
+
+    })
+  </script>
+  <script src="./js/main.js"></script>
+  <script src="./js/stylePre.js"></script>
+
+</body>
+
+</html>

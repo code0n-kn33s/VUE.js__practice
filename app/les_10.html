@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Study</title>
+  <link rel="shortcut icon" href=".\img\favicon1.ico">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href=".\css\main.css">
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-links">+back</a>
+  </nav>
+  <div class="post">
+    <pre>template                                       | сам шаблон должен лежать в <темплейт></pre>
+    <pre>Vue.component                                  | мы указываем id, который вешаем на шаблон <темп> - это запись независимого темплайта</pre>
+  </div>
+
+  <ul class="pattern-list">
+    <li>
+      <message @message-saved="handleMessage"></message>
+    </li>
+    <li>
+      <ul>
+        <li v-for="message in messages">{{message}}</li>
+      </ul>
+    </li>
+  </ul>
+
+  <script src="./js/vue.min.js"></script>
+  <script>
+    Vue.component('message', {
+      template: '<input v-model="message" @keyup.enter="saveMessage">',
+      data: function () {
+        return {
+          message: ''
+        }
+      },
+      methods: {
+        saveMessage: function () {
+          this.$emit('message-saved', this.message)
+          this.message = "" //это чтобы поле input очищалось
+        }
+      }
+    });
+    new Vue({
+      el: ".pattern-list",
+      data: {
+        messages: []
+      },
+      methods: {
+        handleMessage: function (mess) {
+          this.messages.push(mess)
+        }
+      }
+    })
+  </script>
+  <script src="./js/main.js"></script>
+  <script src="./js/stylePre.js"></script>
+
+</body>
+
+</html>

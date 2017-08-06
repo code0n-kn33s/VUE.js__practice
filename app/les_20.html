@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Study</title>
+  <link rel="shortcut icon" href=".\img\favicon1.ico">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href=".\css\main.css">
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-links">+back</a>
+  </nav>
+  <div class="post">
+    <pre>conponents                                    | в скобках мы указываем условие. При котором элемент будет отображаться на странице</pre>
+    <pre>v-*[name_component]                           | мы называем тегом компонент, который хотим дублировать на странице</pre>
+    <pre>пример                                        | Vue.component('v-template', {template: '#dialog-template'});</pre>
+    <pre>{template: '#dialog-template'}                | ищем только по id(по класу, не пропустит)</pre>
+  </div>
+
+  <ul class="pattern-list">
+    <li>
+      <div id="app">
+        <v-mod btn-text="Конечно!">Желаете на Мальдивы?</v-mod>
+        <v-mod btn-text="Сойдет!">Или все же на дачу?</v-mod>
+      </div>
+    </li>
+    <li class="pattern">
+      <h4>template popup</h4>
+      <template div id="dialog-temp">
+        <div>
+          <div v-show="active">
+            <div @click="close()"></div>
+            <div>
+              <div>
+                <slot></slot>
+              </div>
+              <div>
+                <button class="btn" @click="onCancel()">Отмена</button>
+                <button class="btn" @click="onConfirm()">{{ btnText }}</button>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn_temp" @click="open()">im template  link</button>
+        </div>
+      </template>
+    </li>
+  </ul>
+
+  <script src=" ..\node_modules\vue\dist\vue.min.js "></script>
+  <script>
+    Vue.component('v-mod', {
+      template: '#dialog-temp',
+      data: function () {
+        return {
+          active: false
+        }
+      },
+      props: ['btn-text'],
+      methods: {
+        close: function () {
+          this.active = false
+        },
+        open: function () {
+          this.active = true
+        },
+        onCancel: function () {
+          this.close()
+        },
+        onConfirm: function () {
+          this.close()
+        }
+      }
+    });
+
+    new Vue({
+      el: "#app"
+    })
+  </script>
+  <script src="./js/main.js"></script>
+  <script src="./js/stylePre.js"></script>
+
+</body>
+
+</html>

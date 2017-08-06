@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Study</title>
+  <link rel="shortcut icon" href=".\img\favicon1.ico">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href=".\css\main.css">
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-links">+back</a>
+  </nav>
+  <div class="post">
+    <pre>template                                       | сам шаблон должен лежать в <темплейт></pre>
+    <pre>Vue.component                                  | мы указываем id, который вешаем на шаблон <темп> - это запись независимого темплайта</pre>
+    <pre>new Vue({components:})                         | это "зависимые шаблоны"от el: мы их ложим в компоненты components:{v-square: {template:'#square-template'}}</pre>
+    <pre>conponent is="v-triangle">/conponent           | так мы напрямую залезем в component Vue и достанием от туда шаблон треугольника</pre>
+    <pre>conponent :is="currentDynamic"> /conponent     | а так укажем что на этом место должен появиться один из группы шаблонов</pre>
+    <pre>v-bind:is="cD" === :is="cD"                    | :is сокращенно от v-bind:is=""</pre>
+  </div>
+
+  <ul class="pattern-list">
+    <li>
+      <nav>
+        <ul class="nav_dynamic">
+          <li class="nav_dynamic">
+            <button class="btn" @click="switchDynamic('v-square')">Square</button>
+          </li>
+          <li class="nav_dynamic">
+            <button class="btn" @click="switchDynamic('v-triangle')">Triangle</button>
+          </li>
+          <li class="nav_dynamic">
+            <button class="btn" @click="switchDynamic('v-circle')">Circle</button>
+          </li>
+        </ul>
+      </nav>
+      <div :is="currentDynamic" transition="switch"></div>
+      <p> Вставлено таким образом : is="v-triangle"</p>
+      <component is="v-triangle"></component>
+      <component is="v-square"></component>
+      <component is="v-circle"></component>
+    </li>
+
+    <li>
+      <h4>Templates</h4>
+      <template id="squ">
+        <div class="square_dynamic"></div>
+      </template>
+      <template id="tria">
+        <div class="triangle_dynamic"></div>
+      </template>
+      <template id="circ">
+        <div class="circle_dynamic"></div>
+      </template>
+    </li>
+  </ul>
+
+  <script src="./js/vue.min.js"></script>
+
+  <script>
+    new Vue({
+      el: '.pattern-list',
+      data: {
+        currentDynamic: ""
+      },
+      components: {
+        'v-square': {
+          template: "#squ"
+        },
+        'v-triangle': {
+          template: '#tria'
+        },
+        'v-circle': {
+          template: '#circ'
+        }
+      },
+      methods: {
+        switchDynamic: function (view) {
+          this.currentDynamic = view;
+        }
+      }
+    })
+  </script>
+  <script src="./js/main.js"></script>
+  <script src="./js/stylePre.js"></script>
+
+</body>
+
+</html>

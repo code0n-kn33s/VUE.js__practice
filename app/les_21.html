@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Study</title>
+  <link rel="shortcut icon" href=".\img\favicon1.ico">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href=".\css\main.css">
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-links">+back</a>
+  </nav>
+  <div class="post">
+    <pre>conponents                                    | в скобках мы указываем условие. При котором элемент будет отображаться на странице</pre>
+  </div>
+
+  <ul class="pattern-list">
+    <li>
+      <div id="app1">
+        <input id="input-add-alkan" v-model="newAlkanName" type='text' @keyup.enter="addAlkan"><button @click="addAlkan">Добавить алкана</button>
+
+        <h3>Алканы:</h3>
+        <ul>
+          <li is='alkan-item' :name="alkan" v-for='(alkan, index) in alkans' @remove="alkans.splice(index, 1)">{{ alkan }}</li>
+        </ul>
+
+        <button @click="sendAlkan">Послать</button>
+        <div>
+          <template id='chosen-template' v-if="chosen.length > 0">
+            За пивом идет {{ chosen }}!<br>
+            <a href="#" @click="resetAlkan">{{ chosen }} не хочет идти за пивом</a>
+          </template>
+        </div>
+
+
+      </div>
+    </li>
+  </ul>
+
+  <script src=" ..\node_modules\vue\dist\vue.min.js "></script>
+  <script>
+    Vue.component('alkan-item', {
+      template: '\
+      <li>\
+        {{ name }}\
+        <button v-on:click="$emit(\'remove\')">X</button>\
+      </li>\
+    ',
+      props: ['name']
+    })
+
+
+    Vue.component('alkansent', {
+      template: '#chosen-template',
+      props: ['chosen']
+    })
+
+
+    new Vue({
+      el: '#app1',
+      data: {
+        newAlkanName: '',
+        alkans: [],
+        chosen: ''
+      },
+      methods: {
+        addAlkan: function () {
+          if (this.newAlkanName) {
+            this.alkans.push(this.newAlkanName);
+            this.newAlkanName = ''
+          }
+        },
+        sendAlkan: function (e) {
+          if (this.alkans.length > 0) {
+            this.chosen = this.alkans[Math.floor(Math.random() * this.alkans.length)];
+          } else {
+            alert('Никто не бухает!');
+          }
+        },
+        resetAlkan: function () {
+          this.chosen = '';
+        }
+      },
+    });
+  </script>
+  <script src="./js/main.js"></script>
+  <script src="./js/stylePre.js"></script>
+
+</body>
+
+</html>

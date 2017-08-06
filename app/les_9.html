@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Study</title>
+  <link rel="shortcut icon" href=".\img\favicon1.ico">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href=".\css\main.css">
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-links">+back</a>
+  </nav>
+  <div class="post">
+    <pre>conponents                                    | в скобках мы указываем условие. При котором элемент будет отображаться на странице</pre>
+    <pre>v-*[name_component]                           | мы называем тегом компонент, который хотим дублировать на странице</pre>
+    <pre>пример                                        | Vue.component('v-template', {template: '#dialog-template'});</pre>
+    <pre>{template: '#dialog-template'}                | ищем только по id(по класу, не пропустит)</pre>
+  </div>
+
+  <ul class="pattern-list">
+    <li>
+      <nav>
+        <ul class="nav_dynamic">
+          <li class="nav_dynamic">
+            <button class="btn" @click="switchDynamic('square')">Square</button>
+          </li>
+          <li class="nav_dynamic">
+            <button class="btn" @click="switchDynamic('triangle')">Triangle</button>
+          </li>
+          <li class="nav_dynamic">
+            <button class="btn" @click="switchDynamic('circle')">Circle</button>
+          </li>
+        </ul>
+        <v-triangle v-if="currentComponent === 'triangle'"></v-triangle>
+        <v-square v-if="currentComponent === 'square'"></v-square>
+        <v-circle v-if="currentComponent === 'circle'"></v-circle>
+      </nav>
+    </li>
+  </ul>
+
+  <script src=" ..\node_modules\vue\dist\vue.min.js "></script>
+  <script>
+    new Vue({
+      el: '.pattern-list',
+      data: {
+        currentComponent: ""
+      },
+      components: {
+        'v-square': {
+          template: '<div class="square_dynamic"></div>'
+        },
+        'v-triangle': {
+          template: '<div class="triangle_dynamic"></div>'
+        },
+        'v-circle': {
+          template: '<div class="circle_dynamic"></div>'
+        }
+      },
+      methods: {
+        switchDynamic: function (view) {
+          this.currentComponent = view;
+        }
+      }
+    });
+  </script>
+  <script src="./js/main.js"></script>
+  <script src="./js/stylePre.js"></script>
+
+</body>
+
+</html>
