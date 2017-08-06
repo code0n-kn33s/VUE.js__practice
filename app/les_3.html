@@ -23,15 +23,12 @@
   <ul class="pattern-list">
     <li class="pattern">
       <form>
-        <button class="on_click" @click.prevent="onClick">button inside 'form'</button>
+        <button class="on_click" @click.prevent="onClick">@click.prevent button</button>
       </form>
     </li>
     <li class="pattern">
       <input v-model="vText" @keyup.enter="vClick"></input>
       <span>{{vText}}</span>
-    </li>
-    <li class="pattern">
-      <button class="on_click" @click="onClick">just button</button>
     </li>
   </ul>
 
