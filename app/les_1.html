@@ -22,19 +22,24 @@
 
   <ul class="pattern-list">
     <li class="pattern">
+      <h5>содержимое data.message выводим в тег</h5>
       <h1 class="mess">{{message}}</h1>
     </li>
     <li class="pattern">
+      <h5>V-MODEL</h5>
       <input type="text" v-model="message">
     </li>
     <li class="pattern">
+      <h5>Содержание DATA - $data</h5>
       <pre>{{ $data }}</pre>
     </li>
     <li class="pattern">
+      <h5>V-MODEL - передает boolean значение</h5>
       <input type="checkbox" id="check" v-model="checked">
       <label for="check">{{checked}}</label>
     </li>
     <li class="pattern">
+      <h5>V-MODEL - также добавляет и удаляет ячейки массива</h5>
       <input type="checkbox" id="vas" value="Vasa" v-model="checkedNames">
       <label for='vas'>Vasa</label>
       <input type="checkbox" id="pet" value="Peta" v-model="checkedNames">
@@ -46,6 +51,7 @@
       <span>{{checkedNames}}</span>
     </li>
     <li class="pattern">
+      <h5>То что выбрали то отображается</h5>
       <input type="radio" id="one" value="one" v-model="picked">
       <label for='one'>one</label>
       <input type="radio" id="two" value="two" v-model="picked">

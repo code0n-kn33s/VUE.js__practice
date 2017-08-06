@@ -22,11 +22,15 @@
 
   <ul class="pattern-list">
     <li class="pattern">
+      <h5>@click.prevent - предотвращает отправку формы по клику</h5>
+      <h6>в консоле можно увидеть событие по клику на эту кнопку</h6>
       <form>
         <button class="on_click" @click.prevent="onClick">@click.prevent button</button>
       </form>
     </li>
     <li class="pattern">
+      <h5>@keyup.enter - send on click enter. Результат в консоли</h5>
+      <h6>то что мы отправляем можно сохранить в массив</h6>
       <input v-model="vText" @keyup.enter="vClick"></input>
       <span>{{vText}}</span>
     </li>

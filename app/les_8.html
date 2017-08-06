@@ -26,6 +26,7 @@
 
   <ul class="pattern-list">
     <li>
+      <h5>:is - Динамически мы вставляем фигуры</h5>
       <nav>
         <ul class="nav_dynamic">
           <li class="nav_dynamic">
@@ -40,14 +41,15 @@
         </ul>
       </nav>
       <div :is="currentDynamic" transition="switch"></div>
-      <p> Вставлено таким образом : is="v-triangle"</p>
+    </li>
+    <li>
+      <h5> Вставлено таким образом : is="v-..."</h5>
       <component is="v-triangle"></component>
       <component is="v-square"></component>
       <component is="v-circle"></component>
     </li>
-
     <li>
-      <h4>Templates</h4>
+      <h5>Здесь лежат шаблоны фигур</h5>
       <template id="squ">
         <div class="square_dynamic"></div>
       </template>

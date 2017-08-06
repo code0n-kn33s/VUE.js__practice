@@ -23,21 +23,26 @@
   </div>
 
   <ul class="pattern-list">
-    <li style="height:150px;">
+    <li>
+      <h5>Вставляем название тега-шаблона и на выходе получаем его содержимое</h5>
+      <v-one></v-one>
+    </li>
+    <li style="height:180px;">
+      <h5>@click V-SHOW : выводим всплывающее окно</h5>
       <button class="btn" @click="open()">OPEN POPUP</button>
       <button class="btn" @click="close()">CLOSE POPUP</button>
       <v-template v-show="active"></v-template>
     </li>
     <li>
+      <h5>Вставляем компонент vue с готовым html внутри</h5>
       <component></component>
-      <hr>
-      <component2></component2>
     </li>
     <li>
-      <v-template></v-template>
+      <h5>V-SHOW - false скрыть компонент</h5>
       <v-template v-show="false"></v-template>
     </li>
     <li class="pattern">
+      <h5>Здесь лежим сам шаблон</h5>
       <h4>template popup</h4>
       <div id="dialog-template" v-show="active">
         <div class="dialog_window">
@@ -46,9 +51,6 @@
           <button class="btn" @click="buttonConfirm()">Yes</button>
         </div>
       </div>
-    </li>
-    <li>
-      <v-one></v-one>
     </li>
   </ul>
 
@@ -61,11 +63,8 @@
     Vue.component('component', {
       template: '<ul>Вставляем список<li>item1</li><li>item2</li></ul>',
     });
-    Vue.component('component2', {
-      template: '<div>Вставляем тег с содержимым в dom</div>'
-    });
     Vue.component('v-one', {
-      template: '<h3>Вставляем тег : {{ $options.name }} и получаем содержимое шаблона</h3>'
+      template: '<h3>Название этого шаблона : {{ $options.name }}</h3>'
     })
 
     new Vue({

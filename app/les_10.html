@@ -22,9 +22,11 @@
 
   <ul class="pattern-list">
     <li>
+      <h5>Сохраняем содержание сообщений</h5>
       <message @message-saved="handleMessage"></message>
     </li>
     <li>
+      <h5>И пушим их в массив messages</h5>
       <ul>
         <li v-for="message in messages">{{message}}</li>
       </ul>

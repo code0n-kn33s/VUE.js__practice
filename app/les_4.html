@@ -26,20 +26,25 @@
 
   <ul class="pattern-list">
     <li class="pattern">
+      <h5>@click="trigger = !trigger" в связке с v-show - показывает и скрывает по клику</h5>
       <button class="on_click" @click="trigger = !trigger">hide/show</button>
       <div class="square" v-show="trigger"></div>
     </li>
     <li class="pattern">
+      <h5>@click="trigger = !trigger" в связке с v-if - удаляет элемет из dom</h5>
       <button class="on_click" @click="trigger2 = !trigger2">del elem from dom</button>
       <div class="square blue" v-if="trigger2"></div>
     </li>
     <li class="pattern">
+      <h5>@click="trigger = !trigger" в связке с v-if, v-else - поочередно паказывает нам тот или другой элемент</h5>
+      <h6>V-IF можно заменить на V-SHOW</h6>
       <button class="on_click" @click="trigger3 = !trigger3">show me smth else</button>
       <div class="square" v-if="trigger3"></div>
-      <span class="else" v-else>empty</span>
+      <span class="else" v-else>another content</span>
     </li>
     <li>
       <nav class="nav">
+        <h5>По клику мы вызываем TRANSITION анимацию - 'прилетающий' слева список</h5>
         <button class="on_click" @click="trigger4 = !trigger4">
           <i class="ion-navicon"></i>
           <span>slide-animation on click</span>

@@ -31,34 +31,33 @@
       {{ 'Filter To LOWERCASE'.toLowerCase() }}
     </li>
     <li>
-      <p>ограничители до 2 и 4 знаков</p>
+      <h5>ограничители до 2 и 4 знаков</h5>
       <p>{{500.124123.toFixed(2)}}</p>
       <p> {{ num.toFixed(4)}}</p>
     </li>
     <li>
-      <p>Первую букву сделали заглавной и добавили остальной текст</p>
+      <h5>Первую букву сделали заглавной и добавили остальной текст</h5>
       <p>.slice(1) - Индекс элемента в массиве, с которого будет начинаться новый массив</p>
       <p>{{ text[0].toUpperCase() + text.slice(1) }}</p>
     </li>
     <li>
-      <p>просто добавляем строку символа перед числом</p>
+      <h5>просто добавляем строку символа перед числом</h5>
       <span>{{'$'+num.toFixed(0)}}</span>
     </li>
     <li>
-      <p>С помощью перебора массива выводим его содержание</p>
+      <h5>V-FOR : v-for="(item,index) in people" С помощью перебора массива выводим его содержание</h5>
       <ul>
         <li v-for="(item,index) in people">{{soc}} - {{index+1}}. {{item.name[0].toUpperCase() + item.name.slice(1)}}: {{item.age}}</li>
       </ul>
     </li>
     <li>
-      <p>С помощью перебора массива выводим его содержание</p>
-      <ul>
-      </ul>
-    </li>
-    <li>
+      <h5>V-FOR : v-for="i in 10" + item(i) получаем 10 span</h5>
       <span v-for="i in 10" class="some__class">item{{i}}</span>
     </li>
-    <li><span v-for="n in even(numbers) ">{{n}}</span></li>
+    <li>
+      <h5>V-FOR : по такой формуле остатка деления (return number % 2 !== 0), получаем нечетные числа </h5>
+      <span v-for="n in even(numbers) ">{{n}}</span>
+    </li>
   </ul>
 
   <script src="./js/vue.min.js"></script>
